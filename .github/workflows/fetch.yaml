@@ -1,0 +1,54 @@
+name: RSSBot Workflow
+on:
+  schedule:
+    - cron: "0 */10 * * *" # runs every 10 hours
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up JQ
+        run: sudo apt-get install jq
+
+      - name: Get latest release
+        id: get_release
+        run: |
+          download_path=$(curl --silent "https://api.github.com/repos/iovxw/rssbot/releases/latest" | jq -r ".assets[] | select(.name == \"rssbot-zh-x86_64-unknown-linux-musl\") | .browser_download_url")
+          echo "download_path: $download_path"
+          echo "download_path=$download_path" >> "$GITHUB_OUTPUT"
+
+      - name: Download RSSBot
+        env:
+          URL: ${{ steps.get_release.outputs.download_path }}
+        run: |
+          wget -O rssbot $URL -q
+          chmod +x rssbot
+
+      - name: Check and write to rssbot.json
+        run: |
+          if [ ! -f rssbot.json ]; then echo '[]' > rssbot.json; fi
+
+      - name: Run RSSBot
+        env:
+          TOKEN: ${{ secrets.BOT_TOKEN }}
+        run: timeout 1m ./rssbot --insecure --max-feed-size 40971520 -d rssbot.json $TOKEN || true
+
+      - name: Commit and push if changed
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          if [ -z "$(git status --porcelain)" ]; then
+            echo "No changes to commit."
+            exit 0
+          fi
+          git add rssbot.json
+          git commit -m "Update rssbot.json"
+          git push

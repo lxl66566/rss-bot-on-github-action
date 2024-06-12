@@ -39,7 +39,7 @@ jobs:
       - name: Run RSSBot
         env:
           TOKEN: ${{ secrets.BOT_TOKEN }}
-        run: timeout 1m ./rssbot --insecure --max-feed-size 40971520 -d rssbot.json $TOKEN || true
+        run: timeout 1m ./rssbot --insecure --max-feed-size 40971520 --max-interval 41 --min-interval 40 -d rssbot.json $TOKEN || true
 
       - name: Commit and push if changed
         run: |

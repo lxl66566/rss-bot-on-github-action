@@ -2,6 +2,9 @@
 
 [English](./README.md) | 简体中文
 
+> [!CAUTION]
+> 这是以下设想的测试 repo。不过由于 [rssbot](https://github.com/iovxw/rssbot) 本身功能的限制，该设想无法正常工作。也就是说，**这个仓库的代码无法正常使用！！！**如果您可以修复这个问题，我会很感激地接受您的 PR！
+
 <details><summary>前言</summary>
 
 我不喜欢在主机上跑 RSS 订阅软件；我认为聊天软件是 RSS 的一个很好的载体，而我最常用的聊天软件是 Telegram，因此我一直在用 Telegram 的 RSS bot。
@@ -20,7 +23,7 @@
 2. 在 Secret 里添加名为 `BOT_TOKEN` 的 Telegram bot token。
 3. 删除仓库内的 `rssbot.json`。
 4. 在 Actions 界面，启用 workflow。
-5. 按照 [这里](https://github.com/iovxw/rssbot) 的说明，对你的 Telegram 机器人发送订阅指令。
+5. 按照 [这里](https://github.com/iovxw/rssbot) 的说明，对您的 Telegram 机器人发送订阅指令。
 6. 等待其自动运行，并响应指令。或者也可以手动运行。
 
 其他：

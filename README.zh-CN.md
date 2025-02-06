@@ -2,20 +2,19 @@
 
 [English](./README.md) | 简体中文
 
-> [!CAUTION]
-> 这是以下设想的测试 repo。不过由于 [rssbot](https://github.com/iovxw/rssbot) 本身功能的限制，该设想无法正常工作。也就是说，**这个仓库的代码无法正常使用！！！**如果您可以修复这个问题，我会很感激地接受您的 PR！
+这是一个运行在 Github Action 上的 RSS Telegram bot。
 
-<details><summary>前言</summary>
+> [!CAUTION]
+> 这是以下设想的测试 repo。不过由于 [rssbot](https://github.com/iovxw/rssbot) 本身功能的限制，该设想无法正常工作。也就是说，**这个仓库的代码无法正常使用！！！**  
+> **请前往 [Telegram-RSS-Bot-on-Cloudflare-Workers](https://github.com/lxl66566/Telegram-RSS-Bot-on-Cloudflare-Workers)**，这是我后来写的项目，它可以正常在 Cloudflare Workers 上运行 Telegram bot，订阅 RSS 并发送更新通知，无需服务器部署。
+
+## 前言
 
 我不喜欢在主机上跑 RSS 订阅软件；我认为聊天软件是 RSS 的一个很好的载体，而我最常用的聊天软件是 Telegram，因此我一直在用 Telegram 的 RSS bot。
 
 某一天，我常用的那个 RSS bot 出现了延迟多日的情况；尝试更换另一个 RSS bot，得到回复 “已达到全局最大订阅数量，请尝试自建”。
 
 我自己的服务器都是年抛或月抛机，因此我并不想在不稳定的机器上搭建 bot。多年~~滥用~~ Github Actions 的经验突然带给了我一个灵感：为什么不在 Github Actions 上搭一个 RSS bot 呢？这种一段时间运行一次的服务非常适合在 Github 上跑。
-
-</details>
-
-这是一个运行在 Github Action 上的 RSS Telegram bot。
 
 ## 使用
 

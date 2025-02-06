@@ -2,20 +2,19 @@
 
 English | [简体中文](./README.zh-CN.md)
 
-> [!CAUTION]
-> This is a test repo for the following scenario. However, due to limitations in the [rssbot](https://github.com/iovxw/rssbot) itself, this scenario does not work. In other words, **the code in this repository does not work!!!!** If you can fix this, I will gratefully accept your PR!
+A RSS to Telegram bot runs on Github Action.
 
-<details><summary>Preface</summary>
+> [!CAUTION]
+> This is a test repo for the following scenario. However, due to limitations in the [rssbot](https://github.com/iovxw/rssbot) itself, this scenario does not work. In other words, **the code in this repository does not work!!!!**  
+> **Please go to [Telegram-RSS-Bot-on-Cloudflare-Workers](https://github.com/lxl66566/Telegram-RSS-Bot-on-Cloudflare-Workers)**, which is my later project. It can run a Telegram bot on Cloudflare Workers, subscribe to RSS, and send update notifications, no server needed.
+
+## Preface
 
 I don't like running RSS feeds on my host; I think chat software is a good carrier for RSS, and the chat software I use most often is Telegram, so I've been using Telegram's RSS bot.
 
 One day, the RSS bot I was using was delayed for several days; I tried to replace it with another RSS bot, and got the reply ‘the global maximum number of subscriptions has been reached, please try to build your own’.
 
 My own servers are yearly or monthly throwaway machines, so I didn't want to build a bot on an unstable machine. years of ~~abuse~~ of Github Actions suddenly gave me an inspiration: why not build an RSS bot on Github Actions? This once-in-a-while service is perfect for running on Github.
-
-</details>
-
-A RSS to Telegram bot runs on Github Action.
 
 ## Usage
 
